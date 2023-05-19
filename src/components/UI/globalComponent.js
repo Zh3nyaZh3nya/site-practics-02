@@ -1,2 +1,3 @@
 import JCHeader from "@/components/UI/JC-Header";
-export default [JCHeader];
+import JCButton from "@/components/UI/JC-Button";
+export default [JCHeader, JCButton];

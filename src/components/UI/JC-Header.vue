@@ -68,6 +68,7 @@ export default {
   max-width: 1140px;
   width: 100%;
   margin: 0 auto;
+  margin-bottom: 30px;
   .header__content {
     display: flex;
     align-items: center;
@@ -88,6 +89,7 @@ export default {
         border: 1px solid #8EBF0D;
         border-radius: 30px;
         padding: 10px 18px;
+        background: none;
         span {
           font-size: $small-font-size;
           line-height: $small-line-height;
