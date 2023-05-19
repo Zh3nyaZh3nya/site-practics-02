@@ -1,4 +1,5 @@
 <template>
+  <jc-header />
 </template>
 
 <script>
