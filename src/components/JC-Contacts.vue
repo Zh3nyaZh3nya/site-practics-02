@@ -4,7 +4,7 @@
       <div class="contacts__content-title">
         <h2>Свяжитесь с нами</h2>
       </div>
-      <div class="contacts__content__column">
+      <div class="contacts__content__column cl-2">
         <div class="contacts__content__column__left">
           <div class="contacts__content__column__left__link">
             <div
@@ -78,8 +78,6 @@ export default {
       }
     }
     &__column {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
       &__left {
         padding-top: 40px;
         &__link {

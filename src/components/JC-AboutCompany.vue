@@ -7,7 +7,7 @@
       <div class="company__content-img">
         <img src="@/assets/image/imageAbout/svg/Group.svg" alt="" />
       </div>
-      <div class="company__content__column">
+      <div class="company__content__column cl-2">
         <div class="company__content__column__left">
           <div class="company__content__column__left-img">
             <img src="@/assets/image/imageAbout/car.png" alt="" />
@@ -68,8 +68,6 @@ export default {
       left: 390px;
     }
     &__column {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
       column-gap: 55px;
       &__right {
         &-text {

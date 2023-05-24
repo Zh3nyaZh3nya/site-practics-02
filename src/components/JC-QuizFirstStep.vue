@@ -5,7 +5,7 @@
         <h2>Рассчитать стоимость</h2>
         <span>Шаг 1 из 3.</span>
       </div>
-      <div class="first__content__column">
+      <div class="first__content__column cl-2">
         <div class="first__content__column__left">
           <div class="first__content__column__left-inputs">
             <jc-input-range :inputs="inputRange"/>
@@ -135,8 +135,6 @@ export default {
       margin-bottom: 26px;
     }
     &__column {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
       &__right {
         padding: 53px 43px 40px 98px;
         &__calc {

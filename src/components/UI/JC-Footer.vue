@@ -18,7 +18,7 @@
         <div class="footer__content__services-title">
           <h3>Информация об услугах, предоставляемых Jet Car:</h3>
         </div>
-        <div class="footer__content__services__column">
+        <div class="footer__content__services__column cl-2">
           <div class="footer__content__services__column__left">
             <div
                 class="footer__content__services__column__left-item services-item"
@@ -180,10 +180,6 @@ export default {
           line-height: 17px;
           color: #fff;
         }
-      }
-      &__column {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
       }
     }
   }

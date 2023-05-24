@@ -5,7 +5,7 @@
         <h2>Основные условия <br/></h2>
         <span>кредитования</span>
       </div>
-      <div class="conditions__content__column">
+      <div class="conditions__content__column cl-2-1">
         <div class="conditions__content__column__left">
           <div class="conditions__content__column__left-text">
             <span>
@@ -103,8 +103,6 @@ export default {
       }
     }
     &__column {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
       &__left {
         &-text {
           span {

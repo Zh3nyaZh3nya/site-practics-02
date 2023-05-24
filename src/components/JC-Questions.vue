@@ -6,7 +6,7 @@
         <span>Закажите бесплатную консультацию</span>
       </div>
       <div class="questions__content__form">
-        <form action="#">
+        <form action="#" class="row-sb">
           <input type="text" v-model="nameInput" placeholder="Ваше имя">
           <input type="tel" v-model="phoneNumber" @input="formatPhoneNumber" :placeholder="placeholder" />
           <jc-button style="padding: 20px 28px">
@@ -85,7 +85,6 @@ export default {
     &__form {
       margin-bottom: 26px;
       form {
-        display: flex;
         column-gap: 37px;
         input {
           margin-top: 25px;

@@ -25,7 +25,7 @@
           </jc-button>
         </div>
       </div>
-      <div class="services__content__footer">
+      <div class="services__content__footer row-sb">
         <div
             class="services__content__footer__list"
             v-for="item in listServices"
@@ -108,8 +108,6 @@ export default {
       box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
       border-radius: 70px;
       padding: 37px 93px 47px 93px;
-      display: flex;
-      justify-content: space-between;
       &__list {
         &-item {
           display: flex;

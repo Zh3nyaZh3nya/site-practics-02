@@ -7,21 +7,21 @@
           за 3 простых шага!
         </h2>
       </div>
-      <div class="getting__content__row">
+      <div class="getting__content__column cl-3">
         <div
-            class="getting__content__row-item"
+            class="getting__content__column-item"
             v-for="item in gettingLoan"
             :key="item.id"
         >
-          <div class="getting__content__row-item-title">
-            <div class="getting__content__row-item-title-number">
+          <div class="getting__content__column-item-title">
+            <div class="getting__content__column-item-title-number">
               <span>{{item.id}}</span>
             </div>
-            <div class="getting__content__row-item-title-text">
+            <div class="getting__content__column-item-title-text">
               <h3>{{item.title}}</h3>
             </div>
           </div>
-          <div class="getting__content__row-item-subtitle">
+          <div class="getting__content__column-item-subtitle">
             <span>{{item.subtitle}}</span>
           </div>
         </div>
@@ -89,9 +89,7 @@ export default {
         color: #fff;
       }
     }
-    &__row {
-      display: grid;
-      grid-template-columns: repeat(3, 330px);
+    &__column {
       column-gap: 75px;
       row-gap: 30px;
       margin-bottom: 45px;
