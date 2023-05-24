@@ -15,7 +15,7 @@
           </h3>
         </div>
         <div class="services__content__main-btn">
-          <jc-button>
+          <jc-button class="left">
             <template v-slot:img>
               <img src="@/assets/image/svgIcon/arrow-right.svg" alt="arrow">
             </template>
@@ -77,6 +77,7 @@ export default {
   background: url("@/assets/image/imgServices/man-drove-open-window-smilesd-happily.png")
               no-repeat;
   border-radius: 70px;
+  margin-bottom: 72px;
   .services__content {
     &__main {
       padding: 150px 0 0 68px;
