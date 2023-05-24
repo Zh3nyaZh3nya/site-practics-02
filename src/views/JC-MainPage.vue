@@ -6,6 +6,7 @@
   <jc-getting-loan />
   <jc-credit-conditions />
   <jc-credit-registration />
+  <jc-about-company />
 </template>
 
 <script>
@@ -15,9 +16,11 @@ import JcPurchaseInformation from "@/components/JC-PurchaseInformation";
 import JcGettingLoan from "@/components/JC-GettingLoan";
 import JcCreditConditions from "@/components/JC-CreditConditions";
 import JcCreditRegistration from "@/components/JC-CreditRegistration";
+import JcAboutCompany from "@/components/JC-AboutCompany";
 export default {
   name: "jc-main-page",
   components: {
+    JcAboutCompany,
     JcCreditRegistration,
     JcCreditConditions,
     JcGettingLoan,
