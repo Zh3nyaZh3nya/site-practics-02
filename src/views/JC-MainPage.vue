@@ -9,6 +9,7 @@
   <jc-about-company />
   <jc-questions />
   <jc-contacts />
+  <jc-footer />
 </template>
 
 <script>
@@ -21,9 +22,11 @@ import JcCreditRegistration from "@/components/JC-CreditRegistration";
 import JcAboutCompany from "@/components/JC-AboutCompany";
 import JcQuestions from "@/components/JC-Questions";
 import JcContacts from "@/components/JC-Contacts";
+import JcFooter from "@/components/UI/JC-Footer";
 export default {
   name: "jc-main-page",
   components: {
+    JcFooter,
     JcContacts,
     JcQuestions,
     JcAboutCompany,
