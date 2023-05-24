@@ -97,7 +97,7 @@ export default {
     increaseProgress() {
       const newProgress = Math.floor(this.progress + 100 / this.numberStep);
       const nextStep = "third";
-      this.error = !this.error;
+      this.error = true;
       if(this.nameInput > "" && this.iinInput > 11) {
         this.error = false;
         this.$emit("update-progress", newProgress);

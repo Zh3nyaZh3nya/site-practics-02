@@ -49,7 +49,7 @@ export default {
     &-title {
       display: flex;
       justify-content: center;
-      align-items: end;
+      align-items: flex-end;
       column-gap: 15px;
       text-align: center;
       margin-bottom: 42px;

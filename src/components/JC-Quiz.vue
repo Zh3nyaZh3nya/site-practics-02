@@ -77,6 +77,7 @@ export default {
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
 .quiz__wrapper {
+  margin-bottom: 72px;
   .quiz__row {
     display: flex;
     justify-content: center;
