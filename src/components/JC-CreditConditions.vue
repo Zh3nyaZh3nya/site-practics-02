@@ -83,6 +83,7 @@ export default {
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
+  margin-bottom: 100px;
   .conditions__content {
     padding: 61px 65px 84px 60px;
     &-title {

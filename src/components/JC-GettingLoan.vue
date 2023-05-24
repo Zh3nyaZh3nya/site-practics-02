@@ -70,6 +70,9 @@ export default {
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
 .getting__wrapper {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
   background: $green-color;
   padding-top: 70px;
   padding-bottom: 79px;
