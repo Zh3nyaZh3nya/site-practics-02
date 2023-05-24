@@ -8,6 +8,7 @@
   <jc-credit-registration />
   <jc-about-company />
   <jc-questions />
+  <jc-contacts />
 </template>
 
 <script>
@@ -19,9 +20,11 @@ import JcCreditConditions from "@/components/JC-CreditConditions";
 import JcCreditRegistration from "@/components/JC-CreditRegistration";
 import JcAboutCompany from "@/components/JC-AboutCompany";
 import JcQuestions from "@/components/JC-Questions";
+import JcContacts from "@/components/JC-Contacts";
 export default {
   name: "jc-main-page",
   components: {
+    JcContacts,
     JcQuestions,
     JcAboutCompany,
     JcCreditRegistration,
