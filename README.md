@@ -1,4 +1,8 @@
-# practica
+# site-practica №2
+
+```
+vue 3 (Option API, SCSS)
+```
 
 ## Project setup
 ```
