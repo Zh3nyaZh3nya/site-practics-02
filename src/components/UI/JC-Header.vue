@@ -1,16 +1,16 @@
 <template>
-  <div class="header__wrapper">
+  <header class="header container">
     <div class="header__content">
       <div class="header__content-title">
         <img src="@/assets/image/svgIcon/logo.svg" alt="jet.car">
       </div>
       <nav class="header__content__nav">
-        <ul
-            class="header__content__nav__list"
-            v-for="item in navLink"
-            :key="item.id"
-        >
-          <li class="header__content__nav__list-link">
+        <ul class="header__content__nav__list">
+          <li
+              class="header__content__nav__list-link"
+              v-for="item in navLink"
+              :key="item.id"
+          >
             <a :href="item.ref">
               <span>{{ item.link }}</span>
             </a>
@@ -23,7 +23,7 @@
         </button>
       </div>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>
@@ -35,22 +35,22 @@ export default {
         {
           id: 1,
           ref: "/",
-          link: "Преимущества",
+          link: "Автокредитование",
         },
         {
           id: 2,
           ref: "/",
-          link: "Как это работает",
+          link: "Кредит под залог авто",
         },
         {
           id: 3,
           ref: "/",
-          link: "Условия кредитования",
+          link: "Оплата",
         },
         {
           id: 4,
           ref: "/",
-          link: "О нас",
+          link: "О нас",
         },
         {
           id: 5,
@@ -64,20 +64,28 @@ export default {
 </script>
 
 <style lang="scss">
-.header__wrapper {
-  max-width: 1140px;
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: 30px;
+@import "@/assets/scss/variables.scss";
+.header {
+  padding: 0;
   .header__content {
+    margin: 32px 0;
     display: flex;
     align-items: center;
-    column-gap: 31px;
-    margin-top: 33px;
+    &-title {
+      padding: 0;
+      margin-right: 82px;
+    }
     &__nav {
       display: flex;
-      column-gap: 38px;
+      align-items: center;
+      margin-right: 32px;
+      ul {
+        margin-bottom: 0px;
+      }
       &__list {
+        display: flex;
+        align-items: center;
+        column-gap: 34px;
         &-link {
           font-size: $small-font-size;
           line-height: $small-line-height;
@@ -86,13 +94,10 @@ export default {
     }
     &-btn {
       button {
-        border: 1px solid #8EBF0D;
-        border-radius: 30px;
-        padding: 10px 18px;
         background: none;
+        border: 1px solid $green-color;
+        padding: 10px 26px;
         span {
-          font-size: $small-font-size;
-          line-height: $small-line-height;
           color: $green-color;
         }
       }

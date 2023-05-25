@@ -1,12 +1,12 @@
 <template>
-  <div class="conditions__wrapper">
+  <section class="conditions container">
     <div class="conditions__content">
       <div class="conditions__content-title component-title">
         <h2>Основные условия <br/></h2>
         <span>кредитования</span>
       </div>
-      <div class="conditions__content__column cl-2-1">
-        <div class="conditions__content__column__left">
+      <div class="conditions__content__column row">
+        <div class="conditions__content__column__left col-7">
           <div class="conditions__content__column__left-text">
             <span>
               Чтобы воспользоваться услугой и <br/>
@@ -20,7 +20,7 @@
             </span>
           </div>
         </div>
-        <div class="conditions__content__column__right">
+        <div class="conditions__content__column__right col-5">
           <div
               class="conditions__content__column__right-item"
               v-for="item in conditionItem"
@@ -39,7 +39,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -76,16 +76,12 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
-.conditions__wrapper {
-  max-width: 1140px;
-  width: 100%;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.1);
+.conditions {
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
-  margin-bottom: 100px;
-  .conditions__content {
+  &__content {
     padding: 61px 65px 84px 60px;
+    margin-bottom: 100px;
     &-title {
       margin-bottom: 30px;
       h2 {
@@ -116,17 +112,14 @@ export default {
         display: flex;
         flex-direction: column;
         max-width: 400px;
-
         row-gap: 22px;
+        padding: 0px;
         &-item {
           display: flex;
           align-items: center;
           column-gap: 29px;
           &-img {
             background: rgba(142, 191, 13, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 16px;
             border-radius: 50px;
           }

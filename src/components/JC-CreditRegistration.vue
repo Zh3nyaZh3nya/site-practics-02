@@ -1,5 +1,5 @@
 <template>
-  <div class="registration__wrapper">
+  <section class="registration container-xxl">
     <div class="registration__inner">
       <div class="registration__content">
         <div class="registration__content-title">
@@ -24,7 +24,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -35,10 +35,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
-.registration__wrapper {
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
+.registration {
   background: url("@/assets/image/imageReg/business-men-work-with-tablet-computers-their-cars.png") no-repeat;
   padding: 130px 150px;
   margin-bottom: 142px;

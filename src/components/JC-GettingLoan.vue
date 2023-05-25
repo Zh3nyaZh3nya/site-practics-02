@@ -1,28 +1,30 @@
 <template>
-  <div class="getting__wrapper">
-    <div class="getting__content">
+  <section class="getting container-fluid">
+    <div class="getting__content container">
       <div class="getting__content-title">
         <h2>
           Получите кредит в JetCar <br/>
           за 3 простых шага!
         </h2>
       </div>
-      <div class="getting__content__column cl-3">
-        <div
-            class="getting__content__column-item"
-            v-for="item in gettingLoan"
-            :key="item.id"
-        >
-          <div class="getting__content__column-item-title">
-            <div class="getting__content__column-item-title-number">
-              <span>{{item.id}}</span>
+      <div class="getting__content__column container">
+        <div class="row grid gap-5">
+          <div
+              class="getting__content__column-item col"
+              v-for="item in gettingLoan"
+              :key="item.id"
+          >
+            <div class="getting__content__column-item-title">
+              <div class="getting__content__column-item-title-number">
+                <span>{{item.id}}</span>
+              </div>
+              <div class="getting__content__column-item-title-text">
+                <h3>{{item.title}}</h3>
+              </div>
             </div>
-            <div class="getting__content__column-item-title-text">
-              <h3>{{item.title}}</h3>
+            <div class="getting__content__column-item-subtitle">
+              <span>{{item.subtitle}}</span>
             </div>
-          </div>
-          <div class="getting__content__column-item-subtitle">
-            <span>{{item.subtitle}}</span>
           </div>
         </div>
       </div>
@@ -37,7 +39,7 @@
         </jc-button>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -69,18 +71,12 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
-.getting__wrapper {
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
+.getting {
   background: $green-color;
   padding-top: 70px;
   padding-bottom: 79px;
   margin-bottom: 128px;
   .getting__content {
-    max-width: 1140px;
-    width: 100%;
-    margin: 0 auto;
     &-title {
       margin-bottom: 50px;
       h2 {
@@ -90,12 +86,17 @@ export default {
       }
     }
     &__column {
+      display: flex;
       column-gap: 75px;
-      row-gap: 30px;
       margin-bottom: 45px;
+      .gap-5 {
+        gap: 5rem!important;
+      }
       &-item {
         position: relative;
         border-radius: 30px;
+        min-height: 270px;
+        max-width: 330px;
         background: #fff;
         padding: 29px 61px 29px 35px;
         &:not(:last-child):after {

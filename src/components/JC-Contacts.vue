@@ -1,11 +1,11 @@
 <template>
-  <div class="contacts__wrapper">
+  <section class="contacts container">
     <div class="contacts__content">
       <div class="contacts__content-title">
         <h2>Свяжитесь с нами</h2>
       </div>
-      <div class="contacts__content__column cl-2">
-        <div class="contacts__content__column__left">
+      <div class="contacts__content__column row">
+        <div class="contacts__content__column__left col-6">
           <div class="contacts__content__column__left__link">
             <div
                 class="contacts__content__column__left__link-item"
@@ -17,7 +17,7 @@
             </div>
           </div>
         </div>
-        <div class="contacts__content__column__right">
+        <div class="contacts__content__column__right col-6">
           <div class="contacts__content__column__right__map">
             <div class="contacts__content__column__right__map-img">
               <img src="@/assets/image/imageContacts/map.png" alt="" />
@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -63,12 +63,9 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
-.contacts__wrapper {
-  max-width: 1140px;
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: 75px;
+.container {
   .contacts__content {
+    margin-bottom: 75px;
     &-title {
       margin-bottom: 42px;
       h2 {

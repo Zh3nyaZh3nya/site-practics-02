@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer__wrapper">
+  <footer class="footer container-fluid">
     <div class="footer__content">
       <nav class="footer__content__nav">
         <div class="footer__content__nav__row">
@@ -18,8 +18,8 @@
         <div class="footer__content__services-title">
           <h3>Информация об услугах, предоставляемых Jet Car:</h3>
         </div>
-        <div class="footer__content__services__column cl-2">
-          <div class="footer__content__services__column__left">
+        <div class="footer__content__services__column row">
+          <div class="footer__content__services__column__left col-6">
             <div
                 class="footer__content__services__column__left-item services-item"
                 v-for="item in footerServicesLeft"
@@ -30,7 +30,7 @@
               </div>
             </div>
           </div>
-          <div class="footer__content__services__column__right">
+          <div class="footer__content__services__column__right col-6">
             <div
                 class="footer__content__services__column__right-item services-item"
                 v-for="item in footerServicesRight"
@@ -144,9 +144,7 @@ export default {
 </script>
 
 <style lang="scss">
-.footer__wrapper {
-  max-width: 1440px;
-  width: 100%;
+.footer {
   background: #454741;
   .footer__content {
     max-width: 1140px;

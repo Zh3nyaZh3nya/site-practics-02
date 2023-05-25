@@ -1,5 +1,5 @@
 <template>
-  <div class="end__wrapper">
+  <div class="end container">
     <div class="end__content">
       <div class="end__content-title">
         <h2>
@@ -38,7 +38,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
-.end__wrapper {
+.end {
   max-width: 1140px;
   width: 100%;
   margin: 0 auto;

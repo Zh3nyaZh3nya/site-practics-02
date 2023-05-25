@@ -1,5 +1,5 @@
 <template>
-  <div class="second__wrapper">
+  <div class="second container">
     <div class="second__content">
       <div class="second__content-title quiz-title">
         <h2>Введите ваши данные</h2>
@@ -7,14 +7,31 @@
         <span>Получите +25% к одобрению, заполнив этот шаг</span>
       </div>
       <div class="second__content__row quiz-input">
-        <input placeholder="Ваше имя" type="text" v-model="nameInput"/>
-        <input placeholder="ИИН" type="number" v-model="iinInput"/>
-        <input type="tel" v-model="phoneNumber" @input="formatPhoneNumber" :placeholder="placeholder" />
-        <span class="error" v-show="error === true">Заполните все поля</span>
+        <input
+            placeholder="Ваше имя"
+            type="text"
+            v-model="nameInput"
+            :class="{'error-input': error === true}"
+        />
+        <input
+            placeholder="ИИН"
+            type="number"
+            v-model="iinInput"
+            :class="{'error-input': error === true}"
+        />
+        <input
+            type="tel"
+            v-model="phoneNumber"
+            @input="formatPhoneNumber"
+            :placeholder="placeholder"
+            :class="{'error-input': error === true}"
+        />
+        <span class="error" v-show="error === true">Пожалуйста, заполните все обязательные поля</span>
       </div>
       <div class="second__content__agreement">
-        <input type="checkbox" id="agreement" class="checkbox" @change="checked = !checked"/>
+        <input type="checkbox" id="agreement" class="checkbox"/>
         <label for="agreement">Я соглашаюсь на обработку персональных данных</label>
+        <span class="error" v-show="checked === true">Пожалуйста, подтвердите соглашение</span>
       </div>
 
       <div class="content-btn">
@@ -70,7 +87,9 @@ export default {
       phoneNumber: "",
       nameInput: "",
       iinInput: "",
+      checked: false,
       error: false,
+      enteredValues: {},
     };
   },
   computed: {
@@ -97,9 +116,19 @@ export default {
     increaseProgress() {
       const newProgress = Math.floor(this.progress + 100 / this.numberStep);
       const nextStep = "third";
-      this.error = true;
-      if(this.nameInput > "" && this.iinInput > 11) {
+      this.iinInput.toString();
+      if(this.nameInput === "" || this.iinInput.toString().length <= 12 || this.phoneNumber.toString().length <= 16 || this.checked != true ) {
+        this.error = true;
+        this.checked = true;
+      } else {
         this.error = false;
+        this.checked = false;
+        this.enteredValues = {
+          phoneNumber: this.phoneNumber,
+          nameInput: this.nameInput,
+          iinInput: this.iinInput
+        };
+        this.$emit("entered-values", this.enteredValues)
         this.$emit("update-progress", newProgress);
         this.$emit("next-step", nextStep)
       }
@@ -107,6 +136,7 @@ export default {
     decreaseProgress() {
       const newProgress = Math.ceil(this.progress - 100 / this.numberStep);
       const prevStep = "first";
+      this.enteredValues = {};
       this.$emit("decrease-progress", newProgress);
       this.$emit("prev-step", prevStep)
     }
@@ -116,10 +146,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
-.second__wrapper {
-  max-width: 1140px;
-  width: 100%;
-  margin: 0 auto;
+.second {
   padding: 43px 69px 50px 72px;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, .2);
   border-radius: 70px;
@@ -134,6 +161,11 @@ export default {
       display: flex;
       align-items: center;
       margin-bottom: 80px;
+      position: relative;
+      span {
+        position: absolute;
+        top: 24px;
+      }
     }
   }
 }

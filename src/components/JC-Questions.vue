@@ -1,5 +1,5 @@
 <template>
-  <div class="questions__wrapper">
+  <section class="questions container">
     <div class="questions__content">
       <div class="questions__content-title">
         <h2>Остались вопросы?</h2>
@@ -21,7 +21,7 @@
         <label for="agreement">Я соглашаюсь на обработку персональных данных</label>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -61,10 +61,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
-.questions__wrapper {
-  max-width: 1140px;
-  width: 100%;
-  margin: 0 auto;
+.questions {
   margin-bottom: 80px;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
@@ -85,6 +82,7 @@ export default {
     &__form {
       margin-bottom: 26px;
       form {
+        display: flex;
         column-gap: 37px;
         input {
           margin-top: 25px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="third__wrapper">
+  <div class="third container">
     <div class="third__content">
       <div class="third__content-title quiz-title">
         <h2>Введите ваши данные</h2>
@@ -7,10 +7,30 @@
         <span>Получите +50% к одобрению, заполнив этот шаг</span>
       </div>
       <div class="third__content__row quiz-input">
-        <input placeholder="Город проживания" type="text">
-        <input placeholder="Адрес проживания" type="text">
-        <input placeholder="Ваш доход" type="text">
-        <input placeholder="Удобный ежемес. платеж" type="text">
+        <input
+            placeholder="Город проживания"
+            type="text"
+            v-model="cityResidential"
+            :class="{'error-input': this.error === true}"
+        />
+        <input
+            placeholder="Адрес проживания"
+            type="text"
+            v-model="addressResidential"
+            :class="{'error-input': this.error === true}"
+        />
+        <input
+            placeholder="Ваш доход"
+            type="number"
+            v-model="income"
+            :class="{'error-input': this.error === true}"
+        />
+        <input
+            placeholder="Удобный ежемес. платеж"
+            type="number"
+            v-model="monthlyPayment"
+            :class="{'error-input': this.error === true}"
+        />
         <div class="third__content__row__switch">
           <jc-switch-input @toggle-switch="toggleSwitch">
             <template v-slot:text>
@@ -18,6 +38,7 @@
             </template>
           </jc-switch-input>
         </div>
+        <span class="error" v-show="this.error === true">Заполните все поля</span>
       </div>
       <div class="third__content__row__other" v-show="visibleSelect">
         <div class="third__content__row__other__selects quiz-input">
@@ -280,22 +301,44 @@ export default {
       visibleSelectMark: false,
       visibleSelectModel: false,
       visibleSelectYear: false,
+      error: false,
       selectFilter: "",
       selectOptionModel: "",
       selectOptionYear: "",
+      cityResidential: "",
+      addressResidential: "",
+      income: "",
+      monthlyPayment: "",
+      enteredValues: {},
+      selectedValues: [],
     }
   },
   methods: {
     toggleSwitch(data) {
       this.visibleSelect = data;
     },
+    combineValuesAndEmit() {
+      const inputDataAndSelect = {
+        cityResidential: this.cityResidential,
+        addressResidential: this.addressResidential,
+        income: this.income,
+        monthlyPayment: this.monthlyPayment,
+        selectValue: {
+          selectCar: this.selectFilter,
+          selectModel: this.selectOptionModel,
+          selectYear: this.selectOptionYear,
+        }
+      };
+      this.$emit("input-data-and-select", inputDataAndSelect);
+    },
     increaseProgress() {
       if (this.progress < 100) {
         const newProgress = Math.floor(this.progress + 100 / this.numberStep) + 1;
         const nextStep = "fourth";
-        if (newProgress > 100) {
-          this.$emit("update-progress", 100);
-        } else {
+        this.error = true;
+        if(this.cityResidential > "" && this.addressResidential > "" && this.income > 4 && this.monthlyPayment > 4) {
+          this.error = false;
+          this.combineValuesAndEmit();
           this.$emit("update-progress", newProgress);
           this.$emit("next-step", nextStep)
         }
@@ -305,12 +348,8 @@ export default {
       if (this.progress > 0 && this.progress <= 100) {
         const newProgress = Math.ceil(this.progress - 100 / this.numberStep);
         const prevStep = "second";
-        if (newProgress > 100) {
-          this.$emit("decrease-progress", 100);
-        } else {
-          this.$emit("decrease-progress", newProgress);
-          this.$emit("prev-step", prevStep)
-        }
+        this.$emit("decrease-progress", newProgress);
+        this.$emit("prev-step", prevStep)
       }
     }
   }
@@ -319,10 +358,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
-.third__wrapper {
-  max-width: 1140px;
-  width: 100%;
-  margin: 0 auto;
+.third {
   padding: 43px 69px 50px 72px;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, .2);
   border-radius: 70px;
@@ -332,6 +368,8 @@ export default {
     }
     &__row {
       margin-bottom: 17px;
+      display: flex;
+      align-items: center;
       &__other {
         margin-bottom: 30px;
         &__selects {

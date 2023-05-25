@@ -1,5 +1,5 @@
 <template>
-  <section class="services__wrapper">
+  <section class="services container wrapper">
     <div class="services__content">
       <div class="services__content__main">
         <div class="services__content__main-title">
@@ -25,13 +25,13 @@
           </jc-button>
         </div>
       </div>
-      <div class="services__content__footer row-sb">
-        <div
-            class="services__content__footer__list"
-            v-for="item in listServices"
-            :key="item.id"
-        >
-          <div class="services__content__footer__list-item">
+      <div class="services__content__footer container">
+        <div class="services__content__footer__list row">
+          <div
+              class="services__content__footer__list-item col-4"
+              v-for="item in listServices"
+              :key="item.id"
+          >
             <img :src="require('@/assets/image/imgServices/' + item.img)" alt="">
             <span v-html="item.text"></span>
           </div>
@@ -70,15 +70,14 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
-.services__wrapper {
-  max-width: 1140px;
-  width: 100%;
-  margin: 0 auto;
+.services {
   background: url("@/assets/image/imgServices/man-drove-open-window-smilesd-happily.png")
               no-repeat;
   border-radius: 70px;
-  margin-bottom: 72px;
+  --bs-gutter-x: 0;
+  --bs-gutter-y: 0;
   .services__content {
+    margin-bottom: 72px;
     &__main {
       padding: 150px 0 0 68px;
       &-title {
