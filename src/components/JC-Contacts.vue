@@ -1,26 +1,32 @@
 <template>
-  <section class="contacts container">
-    <div class="contacts__content">
-      <div class="contacts__content-title">
-        <h2>Свяжитесь с нами</h2>
-      </div>
-      <div class="contacts__content__column row">
-        <div class="contacts__content__column__left col-6">
-          <div class="contacts__content__column__left__link">
-            <div
-                class="contacts__content__column__left__link-item"
-                v-for="item in contactItem"
-                :key="item.id"
-            >
-              <img :src="require('@/assets/image/imageContacts/svg/' + item.svg)" alt="" />
-              <span v-html="item.text"></span>
-            </div>
-          </div>
+  <section class="contacts">
+    <div class="container">
+      <div class="contacts__content">
+        <div class="contacts__content-title">
+          <h2>Свяжитесь с нами</h2>
         </div>
-        <div class="contacts__content__column__right col-6">
-          <div class="contacts__content__column__right__map">
-            <div class="contacts__content__column__right__map-img">
-              <img src="@/assets/image/imageContacts/map.png" alt="" />
+        <div class="contacts__content__column">
+          <div class="row">
+            <div class="col-6">
+              <div class="contacts__content__column__left">
+                <div class="contacts__content__column__left__link">
+                  <div
+                      class="contacts__content__column__left__link-item"
+                      v-for="item in contactItem"
+                      :key="item.id"
+                  >
+                    <img :src="require('@/assets/image/imageContacts/svg/' + item.svg)" alt="" />
+                    <span v-html="item.text"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="contacts__content__column__right">
+                <div class="contacts__content__column__right__map">
+                  <img src="@/assets/image/imageContacts/map.png" alt="" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -65,7 +71,7 @@ export default {
 @import "@/assets/scss/variables.scss";
 .container {
   .contacts__content {
-    margin-bottom: 75px;
+    margin-bottom: 160px;
     &-title {
       margin-bottom: 42px;
       h2 {
@@ -76,20 +82,28 @@ export default {
     }
     &__column {
       &__left {
-        padding-top: 40px;
+        padding-top: 26px;
         &__link {
           display: flex;
           flex-direction: column;
-          row-gap: 34px;
+          row-gap: 36px;
           &-item {
             display: flex;
             align-items: center;
-            column-gap: 20px;
+            column-gap: 17px;
             span {
               font-size: $tiny-font-size;
               line-height: $tiny-line-height;
               font-weight: 500;
             }
+          }
+        }
+      }
+      &__right {
+        &__map {
+          width: 100%;
+          img {
+            width: 100%;
           }
         }
       }

@@ -1,26 +1,28 @@
 <template>
-  <header class="header container">
-    <div class="header__content">
-      <div class="header__content-title">
-        <img src="@/assets/image/svgIcon/logo.svg" alt="jet.car">
-      </div>
-      <nav class="header__content__nav">
-        <ul class="header__content__nav__list">
-          <li
-              class="header__content__nav__list-link"
-              v-for="item in navLink"
-              :key="item.id"
-          >
-            <a :href="item.ref">
-              <span>{{ item.link }}</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <div class="header__content-btn">
-        <button>
-          <span>Связаться</span>
-        </button>
+  <header class="header">
+    <div class="container">
+      <div class="header__content">
+        <div class="header__content-title">
+          <img src="@/assets/image/svgIcon/logo.svg" alt="jet.car">
+        </div>
+        <nav class="header__content__nav">
+          <ul class="header__content__nav__list">
+            <li
+                class="header__content__nav__list-link"
+                v-for="item in navLink"
+                :key="item.id"
+            >
+              <a :href="item.ref">
+                <span>{{ item.link }}</span>
+              </a>
+            </li>
+          </ul>
+          <div class="header__content-btn">
+            <button>
+              <span>Связаться</span>
+            </button>
+          </div>
+        </nav>
       </div>
     </div>
   </header>
@@ -35,17 +37,17 @@ export default {
         {
           id: 1,
           ref: "/",
-          link: "Автокредитование",
+          link: "Преимущества",
         },
         {
           id: 2,
           ref: "/",
-          link: "Кредит под залог авто",
+          link: "Как это работает",
         },
         {
           id: 3,
           ref: "/",
-          link: "Оплата",
+          link: "Условия кредитования",
         },
         {
           id: 4,
@@ -68,18 +70,21 @@ export default {
 .header {
   padding: 0;
   .header__content {
-    margin: 32px 0;
+    margin: 45px 0 58px 0;
     display: flex;
     align-items: center;
+    column-gap: 31px;
+    justify-content: flex-start;
     &-title {
       padding: 0;
-      margin-right: 82px;
     }
     &__nav {
       display: flex;
       align-items: center;
-      margin-right: 32px;
+      justify-content: space-between;
+      width: 100%;
       ul {
+        padding: 0;
         margin-bottom: 0px;
       }
       &__list {
@@ -94,10 +99,15 @@ export default {
     }
     &-btn {
       button {
+        min-width: 165px;
+        width: 100%;
         background: none;
         border: 1px solid $green-color;
-        padding: 10px 26px;
+        padding: 9px 26px;
+        border-radius: 30px;
         span {
+          font-size: $small-font-size;
+          line-height: $small-line-height;
           color: $green-color;
         }
       }

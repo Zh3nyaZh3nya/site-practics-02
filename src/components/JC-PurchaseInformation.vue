@@ -3,8 +3,8 @@
     <div class="purchase__content">
       <div class="purchase__content-title component-title">
         <h2>
-          Простой и безопасный <br />
-          путь к приобретению
+          Простой и безопасный путь <br />
+          к приобретению
         </h2>
         <span>авто</span>
       </div>
@@ -19,7 +19,7 @@
               <img :src="require('@/assets/image/imagePurchase/' + item.backgroundItem )" alt="" />
             </div>
             <img v-if="item.svgItem" :src="require('@/assets/image/svgIcon/' + item.svgItem)" alt="" />
-            <span>{{item.textItem}}</span>
+            <span v-html="item.textItem"></span>
           </div>
         </div>
       </div>
@@ -41,23 +41,23 @@ export default {
         {
           id: 2,
           svgItem: "man.svg",
-          textItem: "Рассматриваем возможность предоставления кредита по одному документу и без справки о доходах! Работаем на прозрачных условиях и доверяем клиентам.",
+          textItem: "Рассматриваем возможность предоставления кредита по одному документу и без справки о доходах! Работаем на прозрачных условиях <br />  и доверяем клиентам.",
           col: "col-lg-5 col-5",
           padding: "padding-2"
         },
         {
           id: 3,
           svgItem: "headphones.svg",
-          textItem: "Отвечаем на заявку всего за 30 минут! Действуем оперативно, потому что ценим ваше время",
+          textItem: "Отвечаем на заявку всего за 30 минут! Действуем оперативно, потому <br /> что ценим ваше время",
           col: "col-lg-4",
-          padding: "padding-2"
+          padding: "padding-3"
         },
         {
           id: 4,
           svgItem: "car.svg",
-          textItem: "Предлагаем кредит в размере от 300 000 до 15 000 000 тенге! Сможете купить подержанное или новое авто в кредит любой модели и года выпуска.",
+          textItem: "Предлагаем кредит в размере от 300 <br /> 000 до 15 000 000 тенге! Сможете купить подержанное или новое авто в кредит любой модели и года выпуска.",
           col: "col-lg-6",
-          padding: "padding-3",
+          padding: "padding-4",
         },
         {
           id: 5,
@@ -74,20 +74,29 @@ export default {
 @import "@/assets/scss/variables.scss";
 .purchase{
   .purchase__content {
-    margin-bottom: 128px;
+    margin-top: 70px;
+    margin-bottom: 150px;
     &-title {
-      margin-bottom: 24px;
+      margin-bottom: 56px;
     }
     &__column {
       --bs-gutter-x: 30px;
-      --bs-gutter-y: 25px;
+      --bs-gutter-y: 18px;
       &-item {
         display: grid;
-        height: 320px;
+        height: 100%;
         border-radius: 30px;
         box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.2);
-        img {
-          margin-bottom: 15px;
+        .bg {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          img {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+          }
         }
         span {
           font-weight: 400;
@@ -97,9 +106,21 @@ export default {
       }
       .padding-2 {
         padding: 87px 48px 40px 35px;
+        img {
+          margin-bottom: 15px;
+        }
       }
       .padding-3 {
+        padding: 89px 48px 50px 35px;
+        img {
+          margin-bottom: 0px;
+        }
+      }
+      .padding-4 {
         padding: 113px 68px 21px 43px;
+        img {
+          margin-bottom: -22px;
+        }
       }
     }
   }

@@ -1,42 +1,36 @@
 <template>
-  <section class="getting container-fluid">
-    <div class="getting__content container">
-      <div class="getting__content-title">
-        <h2>
-          Получите кредит в JetCar <br/>
-          за 3 простых шага!
-        </h2>
-      </div>
-      <div class="getting__content__column container">
-        <div class="row grid gap-5">
-          <div
-              class="getting__content__column-item col"
-              v-for="item in gettingLoan"
-              :key="item.id"
-          >
-            <div class="getting__content__column-item-title">
-              <div class="getting__content__column-item-title-number">
-                <span>{{item.id}}</span>
+  <section class="getting">
+    <div class="container">
+      <div class="getting__content">
+        <div class="getting__content-title">
+          <h2>
+            Получите кредит за 3 простых шага!
+          </h2>
+        </div>
+        <div class="getting__content__column">
+          <div class="row grid">
+            <div
+                class="col-lg-4 col-xl-4"
+                v-for="item in gettingLoan"
+                :key="item.id"
+            >
+              <div class="getting__content__column-item">
+                <div class="getting__content__column-item-title">
+                  <div class="getting__content__column-item-title-number">
+                    <span>{{item.id}}</span>
+                    <img v-if="item.image" :src="require('@/assets/image/imageLoan/' + item.image)" alt="">
+                  </div>
+                  <div class="getting__content__column-item-title-text">
+                    <h3>{{item.title}}</h3>
+                  </div>
+                </div>
+                <div class="getting__content__column-item-subtitle">
+                  <span v-html="item.subtitle"></span>
+                </div>
               </div>
-              <div class="getting__content__column-item-title-text">
-                <h3>{{item.title}}</h3>
-              </div>
-            </div>
-            <div class="getting__content__column-item-subtitle">
-              <span>{{item.subtitle}}</span>
             </div>
           </div>
         </div>
-      </div>
-      <div class="getting__content-btn">
-        <jc-button style="background: none;box-shadow: none;border: 1px solid #fff;">
-          <template v-slot:img>
-            <img src="@/assets/image/svgIcon/arrow-right.svg" alt="arrow">
-          </template>
-          <template v-slot:text>
-            <span>Оставить заявку</span>
-          </template>
-        </jc-button>
       </div>
     </div>
   </section>
@@ -50,18 +44,20 @@ export default {
       gettingLoan: [
         {
           id: 1,
-          title: "Выберите авто",
-          subtitle: "Выберите подходящий автомобиль и определитесь с условиями финансирования. Рассчитать кредит на авто можно с помощью нашего калькулятора.",
+          title: "Оставьте заявку",
+          subtitle: "Подайте заявку на сайте или в офисе Jet Car. Укажите актуальную информацию для точной предварительной оценки. Дождитесь предложения от специалиста Jet Car.",
+          image: "line.png",
         },
         {
           id: 2,
-          title: "Оставьте заявку",
-          subtitle: "Оставьте онлайн заявку на кредит автомобиля на сайте и ожидайте предложения от Jet Car. Это займет не больше получаса.",
+          title: "Подпишите договор",
+          subtitle: "Предоставьте машину для оценки и подпишите договор — это все, что нужно для того, чтобы оформить кредит <br /> под залог автомобиля!",
+          image: "line.png",
         },
         {
           id: 3,
           title: "Оформите кредит",
-          subtitle: "Заключите договор купли-продажи на кредитные средства, перерегистрируйте транспортное средство в ЦОНе и оформите кредит для покупки автомобиля",
+          subtitle: "Получите деньги в офисе Jet Car или переводом на банковский <br /> счёт. Не забывайте вносить ежемесячные платежи для погашения кредита.",
         },
       ]
     }
@@ -72,74 +68,64 @@ export default {
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
 .getting {
-  background: $green-color;
-  padding-top: 70px;
-  padding-bottom: 79px;
-  margin-bottom: 128px;
+  margin-bottom: 151px;
   .getting__content {
     &-title {
-      margin-bottom: 50px;
+      margin-bottom: 90px;
+      padding-left: 5px;
       h2 {
         font-size: $title-font-size;
         line-height: $title-line-height;
-        color: #fff;
+        font-weight: 500;
       }
     }
     &__column {
-      display: flex;
-      column-gap: 75px;
       margin-bottom: 45px;
-      .gap-5 {
-        gap: 5rem!important;
-      }
+      padding: 0;
       &-item {
-        position: relative;
-        border-radius: 30px;
         min-height: 270px;
-        max-width: 330px;
-        background: #fff;
-        padding: 29px 61px 29px 35px;
-        &:not(:last-child):after {
-          content: "";
-          background: url("@/assets/image/imageLoan/arrowRight.png") no-repeat;
-          position: absolute;
-          top: 121px;
-          right: -39px;
-          width: 41px;
-          height: 36px;
-        }
+        width: 100%;
+        position: relative;
         &-title {
           display: flex;
+          flex-direction: column;
           align-items: center;
-          column-gap: 20px;
-          margin-bottom: 23px;
+          margin-bottom: 10px;
           &-number {
-            padding: 10px 15px;
+            padding: 20px 27px;
             background: $green-color;
             border-radius: 50px;
+            width: 70px;
+            height: 70px;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            position: relative;
             span {
-              font-size: $tiny-font-size;
-              line-height: $tiny-line-height;
+              font-size: $medium-font-size + 4px;
+              line-height: $medium-line-height + 4px;
+              margin-right: 20px;
               color: #fff;
+            }
+            img {
+              position: absolute;
+              left: 90px;
+              margin-bottom: 5px;
             }
           }
           &-text {
             h3 {
-              font-size: $small-font-size;
-              line-height: $small-line-height;
-              color: $green-color;
+              font-size: $medium-font-size;
+              line-height: $medium-line-height;
+              font-weight: 500;
             }
           }
         }
         &-subtitle {
-          font-size: $tiny-font-size;
-          line-height: $tiny-line-height;
+          font-size: $small-font-size;
+          line-height: $small-line-height;
         }
       }
-    }
-    &-btn {
-      display: flex;
-      justify-content: center;
     }
   }
 }

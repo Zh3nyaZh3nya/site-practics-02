@@ -5,36 +5,44 @@
         <h2>Основные условия <br/></h2>
         <span>кредитования</span>
       </div>
-      <div class="conditions__content__column row">
-        <div class="conditions__content__column__left col-7">
-          <div class="conditions__content__column__left-text">
-            <span>
-              Чтобы воспользоваться услугой и <br/>
-              купить авто в кредит, нужно <br/>
-              соответствовать простым <br/>
-              требованиям компании и объективно <br/>
-              оценивать свои возможности. <br/>
-              Как это работает? Выберите <br/>
-              объявление о продаже любой машины <br/>
-              и обращайтесь в Jet Car!
-            </span>
+      <div class="conditions__content__column">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="conditions__content__column__left">
+            <div class="conditions__content__column__left-text">
+              <span>
+                Чтобы воспользоваться услугой и <br/>
+                купить авто в кредит, нужно <br/>
+                соответствовать простым <br/>
+                требованиям компании и объективно <br/>
+                оценивать свои возможности. <br/>
+                Как это работает? Выберите <br/>
+                объявление о продаже любой машины <br/>
+                и обращайтесь в Jet Car!
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="conditions__content__column__right col-5">
-          <div
-              class="conditions__content__column__right-item"
-              v-for="item in conditionItem"
-              :key="item.id"
-          >
-            <div class="conditions__content__column__right-item-img">
-              <img :src="require('@/assets/image/imageCondition/svg/' + item.svg)" alt="">
+          </div>
+          <div class="col-lg-6">
+            <div class="conditions__content__column__right">
+            <div
+                class="conditions__content__column__right-item"
+                v-for="item in conditionItem"
+                :key="item.id"
+            >
+              <div class="conditions__content__column__right-item-img">
+                <img :src="require('@/assets/image/imageCondition/svg/' + item.svg)" alt="">
+              </div>
+              <div class="conditions__content__column__right-item-desc">
+                <div class="conditions__content__column__right-item-desc-text">
+                  <span v-html="item.text"></span>
+                </div>
+                <div class="conditions__content__column__right-item-desc-number">
+                  <span>0{{item.id}}</span>
+                </div>
+              </div>
             </div>
-            <div class="conditions__content__column__right-item-text">
-              <span v-html="item.text"></span>
-            </div>
-            <div class="conditions__content__column__right-item-number">
-              <span>0{{item.id}}</span>
-            </div>
+          </div>
           </div>
         </div>
       </div>
@@ -79,18 +87,19 @@ export default {
 .conditions {
   box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
   border-radius: 50px;
+  margin-top: 100px;
+  margin-bottom: 150px;
   &__content {
-    padding: 61px 65px 84px 60px;
-    margin-bottom: 100px;
+    padding: 59px 65px 84px 59px;
     &-title {
-      margin-bottom: 30px;
+      margin-bottom: 32px;
       h2 {
         position: relative;
         &:after {
           content: "";
           position: absolute;
-          bottom: 30px;
-          left: 421px;
+          bottom: 29px;
+          left: 417px;
           background: url("@/assets/image/imageCondition/svg/J-title.svg") no-repeat;
           display: block;
           width: 59px;
@@ -99,6 +108,7 @@ export default {
       }
     }
     &__column {
+      padding: 0;
       &__left {
         &-text {
           span {
@@ -111,31 +121,36 @@ export default {
       &__right {
         display: flex;
         flex-direction: column;
-        max-width: 400px;
-        row-gap: 22px;
+        row-gap: 39px;
         padding: 0px;
         &-item {
           display: flex;
           align-items: center;
-          column-gap: 29px;
+          column-gap: 32px;
           &-img {
             background: rgba(142, 191, 13, 0.1);
             padding: 16px;
             border-radius: 50px;
           }
-          &-text {
-            width: 338px;
-            span {
-              font: $small-font-size;
-              line-height: $small-line-height;
+          &-desc {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            column-gap: 24px;
+            &-text {
+              width: 338px;
+              span {
+                font-size: $small-font-size;
+                line-height: $small-line-height;
+              }
             }
-          }
-          &-number {
-            span {
-              color: $green-color;
-              font-size: $medium-font-size;
-              line-height: $medium-line-height;
-              font-family: 'Josefin Sans', sans-serif;
+            &-number {
+              span {
+                color: $green-color;
+                font-size: $medium-font-size;
+                line-height: $medium-line-height;
+                font-family: 'Josefin Sans', sans-serif;
+              }
             }
           }
         }

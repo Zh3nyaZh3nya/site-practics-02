@@ -117,7 +117,7 @@ export default {
       const newProgress = Math.floor(this.progress + 100 / this.numberStep);
       const nextStep = "third";
       this.iinInput.toString();
-      if(this.nameInput === "" || this.iinInput.toString().length <= 12 || this.phoneNumber.toString().length <= 16 || this.checked != true ) {
+      if(this.nameInput === "" || this.iinInput.toString().length < 11 || this.phoneNumber.toString().length < 15 || this.checked == false ) {
         this.error = true;
         this.checked = true;
       } else {

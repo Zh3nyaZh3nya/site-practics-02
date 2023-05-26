@@ -1,41 +1,43 @@
 <template>
   <section class="quiz">
     <div class="quiz__row">
-      <jc-quiz-first-step
-          :number-step="numberStep"
+      <div class="container">
+        <jc-quiz-first-step
+            :number-step="numberStep"
+            :progress="progress"
+            :current-step="currentStep"
+            @update-progress="updateProgress"
+            @next-step="nextStep"
+            @selected-amount="selectedAmount"
+            v-if="currentStep === 'first'"
+        />
+        <jc-quiz-second-step
+            :number-step="numberStep"
+            :progress="progress"
+            :current-step="currentStep"
+            @update-progress="updateProgress"
+            @decrease-progress="decreaseProgress"
+            @prev-step="prevStep"
+            @next-step="nextStep"
+            @entered-values="enteredValues"
+            v-else-if="currentStep === 'second'"
+        />
+        <jc-quiz-third-step
+            :number-step="numberStep"
+            :progress="progress"
+            :current-step="currentStep"
+            @update-progress="updateProgress"
+            @decrease-progress="decreaseProgress"
+            @prev-step="prevStep"
+            @next-step="nextStep"
+            @input-data-and-select="inputDataAndSelect"
+            v-else-if="currentStep === 'third'"
+        />
+        <jc-quiz-end-step
           :progress="progress"
-          :current-step="currentStep"
-          @update-progress="updateProgress"
-          @next-step="nextStep"
-          @selected-amount="selectedAmount"
-          v-if="currentStep === 'first'"
-      />
-      <jc-quiz-second-step
-          :number-step="numberStep"
-          :progress="progress"
-          :current-step="currentStep"
-          @update-progress="updateProgress"
-          @decrease-progress="decreaseProgress"
-          @prev-step="prevStep"
-          @next-step="nextStep"
-          @entered-values="enteredValues"
-          v-else-if="currentStep === 'second'"
-      />
-      <jc-quiz-third-step
-          :number-step="numberStep"
-          :progress="progress"
-          :current-step="currentStep"
-          @update-progress="updateProgress"
-          @decrease-progress="decreaseProgress"
-          @prev-step="prevStep"
-          @next-step="nextStep"
-          @input-data-and-select="inputDataAndSelect"
-          v-else-if="currentStep === 'third'"
-      />
-      <jc-quiz-end-step
-        :progress="progress"
-        v-else-if="currentStep === 'fourth'"
-      />
+          v-else-if="currentStep === 'fourth'"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -90,7 +92,7 @@ export default {
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
 .quiz {
-  margin-bottom: 72px;
+  margin-bottom: 176px;
   .quiz__row {
     display: flex;
     justify-content: center;

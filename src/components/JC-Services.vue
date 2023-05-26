@@ -1,39 +1,43 @@
 <template>
-  <section class="services container wrapper">
-    <div class="services__content">
-      <div class="services__content__main">
-        <div class="services__content__main-title">
-          <h1>
-            Автокредит на любой вкус <br />
-            и кошелек
-          </h1>
+  <section class="services wrapper">
+    <div class="container">
+      <div class="services__content">
+        <div class="services__content__main">
+          <div class="services__content__main-title">
+            <h1>
+              Автокредит на любой вкус <br />
+              и кошелёк
+            </h1>
+          </div>
+          <div class="services__content__main-subtitle">
+            <h3>
+              Приобретите автомобиль своей мечты <br />
+              и наслаждайтесь свободой передвижения
+            </h3>
+          </div>
+          <div class="services__content__main-btn">
+            <jc-button class="left">
+              <template v-slot:img>
+                <img src="@/assets/image/svgIcon/arrow-right.svg" alt="arrow">
+              </template>
+              <template v-slot:text>
+                <span>Оставить заявку</span>
+              </template>
+            </jc-button>
+          </div>
         </div>
-        <div class="services__content__main-subtitle">
-          <h3>
-            Приобретите автомобиль своей мечты и <br />
-            наслаждайтесь свободой передвижения
-          </h3>
-        </div>
-        <div class="services__content__main-btn">
-          <jc-button class="left">
-            <template v-slot:img>
-              <img src="@/assets/image/svgIcon/arrow-right.svg" alt="arrow">
-            </template>
-            <template v-slot:text>
-              <span>Оставить заявку</span>
-            </template>
-          </jc-button>
-        </div>
-      </div>
-      <div class="services__content__footer container">
-        <div class="services__content__footer__list row">
-          <div
-              class="services__content__footer__list-item col-4"
-              v-for="item in listServices"
-              :key="item.id"
-          >
-            <img :src="require('@/assets/image/imgServices/' + item.img)" alt="">
-            <span v-html="item.text"></span>
+        <div class="services__content__footer container-fluid">
+          <div class="services__content__footer__list row">
+            <div
+                class="col-xl-4 col-lg-4"
+                v-for="item in listServices"
+                :key="item.id"
+            >
+              <div class="services__content__footer__list-item">
+                <img :src="require('@/assets/image/imgServices/' + item.img)" alt="">
+                <span v-html="item.text"></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -60,7 +64,7 @@ export default {
         {
           id: 3,
           img: "document.png",
-          text: "по 1 документу - <br /> удостоверению",
+          text: "по 1 документу — <br /> удостоверению",
         },
       ]
     }
@@ -71,17 +75,17 @@ export default {
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
 .services {
-  background: url("@/assets/image/imgServices/man-drove-open-window-smilesd-happily.png")
-              no-repeat;
-  border-radius: 70px;
   --bs-gutter-x: 0;
   --bs-gutter-y: 0;
   .services__content {
+    background: url("@/assets/image/imgServices/man-drove-open-window-smilesd-happily.png")
+    no-repeat;
+    border-radius: 70px;
     margin-bottom: 72px;
     &__main {
-      padding: 150px 0 0 68px;
+      padding: 141px 0 0 93px;
       &-title {
-        margin-bottom: 30px;
+        margin-bottom: 32px;
         h1 {
           font-size: $big-title-font-size;
           line-height: $big-title-line-height;
@@ -90,7 +94,7 @@ export default {
         }
       }
       &-subtitle {
-        margin-bottom: 26px;
+        margin-bottom: 47px;
         h3 {
           font-size: $medium-font-size;
           line-height: $medium-line-height;
@@ -99,15 +103,16 @@ export default {
         }
       }
       &-btn {
-        margin-bottom: 97px;
+        margin-bottom: 86px;
       }
     }
     &__footer {
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.9) 54.69%, #FFFFFF 100%);
       box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
       border-radius: 70px;
-      padding: 37px 93px 47px 93px;
+      padding: 37px 0 48px 0;
       &__list {
+        row-gap: 30px;
         &-item {
           display: flex;
           flex-direction: column;

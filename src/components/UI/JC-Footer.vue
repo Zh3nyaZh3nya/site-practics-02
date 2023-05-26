@@ -1,10 +1,10 @@
 <template>
   <footer class="footer container-fluid">
-    <div class="footer__content">
-      <nav class="footer__content__nav">
-        <div class="footer__content__nav__row">
+    <div class="container">
+      <div class="footer__content">
+        <nav class="footer__content__nav">
           <div
-              class="footer__content__nav__row-item"
+              class="footer__content__nav-item"
               v-for="item in footerNav"
               :key="item.id"
           >
@@ -12,32 +12,32 @@
               {{item.text}}
             </router-link>
           </div>
-        </div>
-      </nav>
-      <div class="footer__content__services">
-        <div class="footer__content__services-title">
-          <h3>Информация об услугах, предоставляемых Jet Car:</h3>
-        </div>
-        <div class="footer__content__services__column row">
-          <div class="footer__content__services__column__left col-6">
-            <div
-                class="footer__content__services__column__left-item services-item"
-                v-for="item in footerServicesLeft"
-                :key="item.id"
-            >
-              <div class="footer__content__services__column__left-item-text">
-                <span v-html="item.text"></span>
+        </nav>
+        <div class="footer__content__services">
+          <div class="footer__content__services-title">
+            <h3>Информация об услугах, предоставляемых Jet Car:</h3>
+          </div>
+          <div class="footer__content__services__column row">
+            <div class="footer__content__services__column__left col-6">
+              <div
+                  class="footer__content__services__column__left-item services-item"
+                  v-for="item in footerServicesLeft"
+                  :key="item.id"
+              >
+                <div class="footer__content__services__column__left-item-text">
+                  <span v-html="item.text"></span>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="footer__content__services__column__right col-6">
-            <div
-                class="footer__content__services__column__right-item services-item"
-                v-for="item in footerServicesRight"
-                :key="item.id"
-            >
-              <div class="footer__content__services__column__right-item-text">
-                <span v-html="item.text"></span>
+            <div class="footer__content__services__column__right col-6">
+              <div
+                  class="footer__content__services__column__right-item services-item"
+                  v-for="item in footerServicesRight"
+                  :key="item.id"
+              >
+                <div class="footer__content__services__column__right-item-text">
+                  <span v-html="item.text"></span>
+                </div>
               </div>
             </div>
           </div>
@@ -119,11 +119,11 @@ export default {
         {
           id: 6,
           text:
-              "6. В случае, если вы не можете своевременно погасить кредит, сразу же <br />" +
-              " свяжитесь с нами. Мы обсудим с вами возможные варианты решения: <br /> " +
-              "пересмотр графика платежей, частичное погашение текущего платежа или <br /> " +
-              "продажа залогового автомобиля, в случае если кредит вам больше не <br /> " +
-              "подходит.",
+              "6. В случае, если вы не можете своевременно погасить кредит, <br />" +
+              "сразу же свяжитесь с нами. Мы обсудим с вами возможные варианты <br /> " +
+              "решения: пересмотр графика платежей, частичное погашение текущего <br />" +
+              "платежа или продажа залогового автомобиля, в случае если кредит <br /> " +
+              "вам больше не подходит.",
         },
         {
           id: 7,
@@ -147,31 +147,29 @@ export default {
 .footer {
   background: #454741;
   .footer__content {
-    max-width: 1140px;
-    width: 100%;
-    margin: 0 auto;
     padding-top: 44px;
     padding-bottom: 40px;
     &__nav {
       margin-bottom: 36px;
-      &__row {
-        display: flex;
-        column-gap: 31px;
-        &-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      column-gap: 30px;
+      row-gap: 20px;
+      &-item {
           a {
             font-size: 14px;
             line-height: 17px;
             color: #fff;
             font-weight: 600;
           }
-        }
       }
     }
     &__services {
       &-title {
         display: flex;
         justify-content: center;
-        margin-bottom: 33px;
+        margin-bottom: 25px;
         h3 {
           font-weight: 600;
           font-size: 14px;

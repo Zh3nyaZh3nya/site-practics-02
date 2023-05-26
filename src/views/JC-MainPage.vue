@@ -2,11 +2,8 @@
   <jc-header />
   <jc-services />
   <jc-quiz />
-  <jc-purchase-information />
-  <jc-getting-loan />
-  <jc-credit-conditions />
+  <jc-tabs />
   <jc-credit-registration />
-  <jc-about-company />
   <jc-questions />
   <jc-contacts />
   <jc-footer />
@@ -23,9 +20,11 @@ import JcAboutCompany from "@/components/JC-AboutCompany";
 import JcQuestions from "@/components/JC-Questions";
 import JcContacts from "@/components/JC-Contacts";
 import JcFooter from "@/components/UI/JC-Footer";
+import JcTabs from "@/components/JC-Tabs";
 export default {
   name: "jc-main-page",
   components: {
+    JcTabs,
     JcFooter,
     JcContacts,
     JcQuestions,
