@@ -172,4 +172,45 @@ export default {
   color: $warning-color;
   border: none;
 }
+@media(max-width: 568px) {
+  .quiz {
+    margin-bottom: 59px;
+  }
+  .quiz-title {
+    h2 {
+      font-size: 36px;
+      line-height: 44px;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    span {
+      font-size: 14px;
+      line-height: 17px;
+      font-weight: 700;
+    }
+    span:nth-child(2) {
+      color: $gray-color;
+    }
+  }
+  .quiz__progress {
+    padding: 0 19px 0 13px;
+    margin-bottom: 27px;
+    &-title {
+      margin-bottom: 8px;
+      padding: 0 1px 0 4px;
+      span {
+        font-size: 14px;
+        line-height: 17px;
+      }
+      span:last-child {
+        font-size: 16px;
+      }
+    }
+  }
+}
+.quiz__progress {
+  position: relative;
+  order: 2;
+  //margin-bottom: 25px;
+}
 </style>

@@ -11,8 +11,8 @@
             <div class="conditions__content__column__left">
             <div class="conditions__content__column__left-text">
               <span>
-                Чтобы воспользоваться услугой и <br/>
-                купить авто в кредит, нужно <br/>
+                Чтобы воспользоваться услугой <br/>
+                и купить авто в кредит, нужно <br/>
                 соответствовать простым <br/>
                 требованиям компании и объективно <br/>
                 оценивать свои возможности. <br/>
@@ -32,6 +32,7 @@
             >
               <div class="conditions__content__column__right-item-img">
                 <img :src="require('@/assets/image/imageCondition/svg/' + item.svg)" alt="">
+                <span>0{{item.id}}</span>
               </div>
               <div class="conditions__content__column__right-item-desc">
                 <div class="conditions__content__column__right-item-desc-text">
@@ -69,7 +70,7 @@ export default {
         {
           id: 3,
           svg: "identityCard.svg",
-          text: "У Вас есть действующее <br /> удостоверение личности <br /> и водительские права",
+          text: "У вас есть действующее <br /> удостоверение личности <br /> и водительские права",
         },
         {
           id: 4,
@@ -90,7 +91,7 @@ export default {
   margin-top: 100px;
   margin-bottom: 150px;
   &__content {
-    padding: 59px 65px 84px 59px;
+    padding: 61px 65px 84px 60px;
     &-title {
       margin-bottom: 32px;
       h2 {
@@ -111,6 +112,7 @@ export default {
       padding: 0;
       &__left {
         &-text {
+          padding-left: 7px;
           span {
             font-size: $small-font-size;
             line-height: $small-line-height;
@@ -131,6 +133,9 @@ export default {
             background: rgba(142, 191, 13, 0.1);
             padding: 16px;
             border-radius: 50px;
+            span {
+              display: none;
+            }
           }
           &-desc {
             display: flex;
@@ -151,6 +156,80 @@ export default {
                 line-height: $medium-line-height;
                 font-family: 'Josefin Sans', sans-serif;
               }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media(max-width: 568px) {
+  .conditions {
+    margin-top: 50px;
+    border-radius: 20px;
+    margin-bottom: 98px;
+    &__content {
+      padding: 38px 15px 58px 7px;
+      &-title {
+        padding-left: 8px;
+        margin-bottom: 38px;
+        h2 {
+          &:after {
+            top: 66px;
+            left: 217px;
+            bottom: 0;
+          }
+        }
+      }
+      &__column {
+        &__left {
+          &-text {
+            margin-bottom: 42px;
+            span {
+              font-size: $tiny-font-size;
+              line-height: $tiny-line-height;
+            }
+          }
+        }
+        &__right {
+          row-gap: 28px;
+          &-item {
+            display: flex;
+            flex-direction: column;
+            row-gap: 12px;
+            &-img {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+              padding: 16px 19px 9px 16px;
+              span {
+                display: block;
+                color: $green-color;
+                font-size: $medium-font-size;
+                line-height: $medium-line-height;
+                font-family: 'Josefin Sans', sans-serif;
+              }
+              img {
+                width: 26px;
+                height: 26px;
+              }
+            }
+            &-desc {
+              width: 100%;
+              &-text {
+                width: 100%;
+                padding-left: 8px;
+                span {
+                  font-size: $tiny-font-size;
+                  line-height: $tiny-line-height;
+                }
+              }
+              &-number {
+                display: none;
+              }
+            }
+            br {
+              display: none;
             }
           }
         }

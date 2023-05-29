@@ -7,7 +7,7 @@
         </div>
         <div class="contacts__content__column">
           <div class="row">
-            <div class="col-6">
+            <div class="col-lg-6">
               <div class="contacts__content__column__left">
                 <div class="contacts__content__column__left__link">
                   <div
@@ -21,12 +21,18 @@
                 </div>
               </div>
             </div>
-            <div class="col-6">
-              <div class="contacts__content__column__right">
-                <div class="contacts__content__column__right__map">
-                  <img src="@/assets/image/imageContacts/map.png" alt="" />
-                </div>
-              </div>
+            <div class="col-lg-6">
+              <yandex-map
+                  :coords="coords"
+                  :zoom="15"
+                  class="yandex-map w-100"
+              >
+                <ymap-marker
+                    :coords="coords"
+                    marker-id="123"
+                    hint-content="some hint"
+                />
+              </yandex-map>
             </div>
           </div>
         </div>
@@ -36,8 +42,11 @@
 </template>
 
 <script>
+import { yandexMap, ymapMarker } from 'vue-yandex-maps'
+
 export default {
   name: "jc-contacts",
+  components: { yandexMap, ymapMarker },
   data() {
     return {
       contactItem: [
@@ -61,7 +70,16 @@ export default {
           svg: "time.svg",
           text: "Пн-Пт: 10:00-19:00 <br /> Сб-Вс: выходной",
         },
-      ]
+      ],
+      settings: {
+        apiKey: 'd788c73c-29d9-479c-89da-856189171458',
+        lang: 'ru_RU',
+        version: '2.1'
+      },
+      coords: [
+        43.25440107454222,
+        76.93175699999989
+      ],
     }
   },
 }
@@ -69,9 +87,9 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
-.container {
+.contacts {
+  margin-bottom: 160px;
   .contacts__content {
-    margin-bottom: 160px;
     &-title {
       margin-bottom: 42px;
       h2 {
@@ -100,11 +118,36 @@ export default {
         }
       }
       &__right {
-        &__map {
-          width: 100%;
-          img {
-            width: 100%;
-          }
+      }
+    }
+  }
+}
+.yandex-map {
+  height: 385px;
+}
+@media (max-width: 1024px) {
+  .contacts {
+    .contacts__content {
+      margin-bottom: 0;
+    }
+    .contacts__content__column__left {
+      padding-top: 0;
+      margin-bottom: 81px;
+      &__link {
+        row-gap: 22px;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .contacts {
+    margin-bottom: 0px;
+    .contacts__content {
+      &-title {
+        margin-bottom: 28px;
+        h2 {
+          font-size: 36px;
+          line-height: 44px;
         }
       }
     }

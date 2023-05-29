@@ -100,4 +100,40 @@ export default {
     }
   }
 }
+@media (max-width: 568px) {
+  .company {
+    .company__content {
+      margin-top: 50px;
+      margin-bottom: 87px;
+      &-title {
+        margin-bottom: 7px;
+        padding-left: 0;
+      }
+      &-img {
+        top: 130px;
+        left: 100px;
+      }
+      &__column {
+        width: 100%;
+        row-gap: 62px;
+        &__left {
+          margin-bottom: 62px;
+        }
+        &__right {
+          padding: 0;
+          br {
+            display: none;
+          }
+          &-text {
+            row-gap: 19px;
+            span {
+              font-size: $tiny-font-size;
+              line-height: $tiny-line-height;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 </style>

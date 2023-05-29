@@ -18,14 +18,18 @@
                 <div class="getting__content__column-item-title">
                   <div class="getting__content__column-item-title-number">
                     <span>{{item.id}}</span>
+                  </div>
+                  <div class="getting__content__column-item-title-line">
                     <img v-if="item.image" :src="require('@/assets/image/imageLoan/' + item.image)" alt="">
                   </div>
-                  <div class="getting__content__column-item-title-text">
+                </div>
+                <div class="getting__content__column-item-text">
+                  <div class="getting__content__column-item-text-title">
                     <h3>{{item.title}}</h3>
                   </div>
-                </div>
-                <div class="getting__content__column-item-subtitle">
-                  <span v-html="item.subtitle"></span>
+                  <div class="getting__content__column-item-text-subtitle">
+                    <span v-html="item.subtitle"></span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -69,7 +73,7 @@ export default {
 @import "@/assets/scss/variables.scss";
 .getting {
   margin-bottom: 151px;
-  .getting__content {
+  &__content {
     &-title {
       margin-bottom: 90px;
       padding-left: 5px;
@@ -83,14 +87,15 @@ export default {
       margin-bottom: 45px;
       padding: 0;
       &-item {
-        min-height: 270px;
         width: 100%;
         position: relative;
+        display: grid;
         &-title {
           display: flex;
-          flex-direction: column;
+          justify-content: center;
           align-items: center;
-          margin-bottom: 10px;
+          position: relative;
+          width: 100%;
           &-number {
             padding: 20px 27px;
             background: $green-color;
@@ -100,30 +105,101 @@ export default {
             margin-bottom: 28px;
             display: flex;
             align-items: center;
-            position: relative;
             span {
               font-size: $medium-font-size + 4px;
               line-height: $medium-line-height + 4px;
               margin-right: 20px;
               color: #fff;
             }
+          }
+          &-line {
             img {
               position: absolute;
-              left: 90px;
-              margin-bottom: 5px;
+              right: -150px;
+              top: 37px;
             }
           }
-          &-text {
+        }
+        &-text {
+          &-title {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
             h3 {
               font-size: $medium-font-size;
               line-height: $medium-line-height;
               font-weight: 500;
             }
           }
+          &-subtitle {
+            font-size: $small-font-size;
+            line-height: $small-line-height;
+          }
         }
-        &-subtitle {
-          font-size: $small-font-size;
-          line-height: $small-line-height;
+      }
+    }
+  }
+}
+@media(max-width: 768px) {
+  .getting {
+    &__content {
+      &-title {
+        margin-bottom: 67px;
+        padding-left: 0px;
+        h2 {
+          font-size: 36px;
+          line-height: 44px;
+        }
+      }
+      &__column {
+        &-item {
+          display: flex;
+          column-gap: 29px;
+          margin-bottom: 46px;
+          &-title {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 60px;
+            &-number {
+              padding: 15px 22px;
+              width: 60px;
+              height: 60px;
+              span {
+                font-size: $medium-font-size + 4px;
+                line-height: $medium-line-height + 4px;
+              }
+            }
+            &-line {
+              img {
+                position: absolute;
+                right: -35px;
+                top: 132px;
+                transform: rotate(90deg);
+                width: 130px;
+              }
+            }
+          }
+
+          &-text {
+            &-title {
+              display: flex;
+              justify-content: flex-start;
+              padding-top: 2px;
+              h3 {
+                font-size: $small-font-size;
+                line-height: $small-line-height;
+              }
+            }
+
+            &-subtitle {
+              font-size: $tiny-font-size;
+              line-height: $tiny-line-height;
+            }
+            br{
+              display: none;
+            }
+          }
         }
       }
     }

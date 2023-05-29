@@ -1,6 +1,6 @@
 <template>
   <div class="second container">
-    <div class="second__content">
+    <div class="second__content row">
       <div class="second__content-title quiz-title">
         <h2>Введите ваши данные</h2>
         <span>Шаг 2 из 3. </span>
@@ -34,8 +34,8 @@
         <span class="error" v-show="checked === true">Пожалуйста, подтвердите соглашение</span>
       </div>
 
-      <div class="content-btn">
-        <jc-button style="column-gap: 30px" @click="decreaseProgress">
+      <div class="second__content-btn">
+        <jc-button class="left" style="column-gap: 30px" @click="decreaseProgress">
           <template v-slot:img>
             <img src="@/assets/image/svgIcon/arrow-left.svg" alt="arrow">
           </template>
@@ -159,12 +159,40 @@ export default {
     }
     &__agreement {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       margin-bottom: 80px;
       position: relative;
       span {
         position: absolute;
         top: 24px;
+      }
+    }
+    &-btn {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 26px;
+    }
+  }
+}
+@media (max-width: 769px) {
+  .second {
+    padding: 24px 22px 37px 13px;
+    border-radius: 20px;
+    .second__content {
+      &-title {
+        margin-bottom: 40px;
+      }
+      &__agreement {
+        margin-bottom: 104px;
+        span {
+          top: 40px;
+        }
+      }
+      &-btn {
+        order: 3;
+        button {
+          padding-left: 19px;
+        }
       }
     }
   }

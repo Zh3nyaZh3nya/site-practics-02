@@ -1,6 +1,6 @@
 <template>
   <div class="third container">
-    <div class="third__content">
+    <div class="third__content row">
       <div class="third__content-title quiz-title">
         <h2>Введите ваши данные</h2>
         <span>Шаг 2 из 3. </span>
@@ -131,8 +131,8 @@
           </div>
         </div>
       </div>
-      <div class="content-btn">
-        <jc-button style="column-gap: 30px" @click="decreaseProgress">
+      <div class="third__content-btn">
+        <jc-button class="left" style="column-gap: 30px" @click="decreaseProgress">
           <template v-slot:img>
             <img src="@/assets/image/svgIcon/arrow-left.svg" alt="arrow">
           </template>
@@ -372,9 +372,12 @@ export default {
       align-items: center;
       &__other {
         margin-bottom: 30px;
-        &__selects {
-        }
       }
+    }
+    &-btn {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 26px;
     }
   }
 }
@@ -412,6 +415,28 @@ export default {
     &:hover {
       transition: ease all .3s;
       color: $gray-color;
+    }
+  }
+}
+@media (max-width: 769px) {
+  .third {
+    padding: 24px 9px 37px 9px;
+    border-radius: 20px;
+    .third__content {
+      &__row {
+        margin-bottom: 17px;
+        display: flex;
+        align-items: center;
+        &__other {
+          margin-bottom: 30px;
+        }
+      }
+      &-btn {
+        order: 3;
+        button {
+          padding-left: 19px;
+        }
+      }
     }
   }
 }

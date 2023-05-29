@@ -5,42 +5,44 @@
           <h2>Рассчитать стоимость</h2>
           <span>Шаг 1 из 3.</span>
         </div>
-        <div class="first__content__column row">
-          <div class="col-lg-7 col-xl-7">
-            <div class="first__content__column__left">
-            <div
-                class="first__content__column__left-inputs"
-                v-for="input in inputRange"
-                :key="input.id"
-            >
-              <div class="first__content__column__left-inputs-title">
-                <span>{{ input.title }}</span>
-                <span :class="input.colorValue">{{ formatNumber(input.value) }} {{ input.postFix }}</span>
-              </div>
-              <slider
-                  :min="input.min"
-                  :max="input.max"
-                  :step="input.step"
-                  :tooltips="false"
-                  v-model="input.value"
-              />
-              <div class="first__content__column__left-inputs-subtitle">
-                <span>{{ formatNumber(input.value) }}</span>
-                <span>{{ formatNumber(input.max) }}</span>
+        <div class="first__content__column">
+          <div class="row">
+            <div class="col-lg-7 col-xl-7">
+              <div class="first__content__column__left">
+              <div
+                  class="first__content__column__left-inputs"
+                  v-for="input in inputRange"
+                  :key="input.id"
+              >
+                <div class="first__content__column__left-inputs-title">
+                  <span>{{ input.title }}</span>
+                  <span :class="input.colorValue">{{ formatNumber(input.value) }} {{ input.postFix }}</span>
+                </div>
+                <slider
+                    :min="input.min"
+                    :max="input.max"
+                    :step="input.step"
+                    :tooltips="false"
+                    v-model="input.value"
+                />
+                <div class="first__content__column__left-inputs-subtitle">
+                  <span>{{ formatNumber(input.value) }}</span>
+                  <span>{{ formatNumber(input.max) }}</span>
+                </div>
               </div>
             </div>
-          </div>
-          </div>
-          <div class="col-lg-5 col-xl-5">
-            <div class="first__content__column__right">
-              <div class="first__content__column__right__calc">
-                <div class="first__content__column__right__calc__pay">
-                  <span>Ежемесячный платеж: </span>
-                  <span>{{ formatNumber(getInfoPay) }} ₸</span>
-                </div>
-                <div class="first__content__column__right__calc__insurance">
-                  <span>Страховка от несчастного случая: <br /> </span>
-                  <span>{{ formatNumber(getInfoInsurance) }} ₸</span>
+            </div>
+            <div class="col-lg-5 col-xl-5">
+              <div class="first__content__column__right">
+                <div class="first__content__column__right__calc">
+                  <div class="first__content__column__right__calc__pay">
+                    <span>Ежемесячный платеж: </span>
+                    <span>{{ formatNumber(getInfoPay) }} ₸</span>
+                  </div>
+                  <div class="first__content__column__right__calc__insurance">
+                    <span>Страховка от несчастного случая: <br /> </span>
+                    <span>{{ formatNumber(getInfoInsurance) }} ₸</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -192,7 +194,7 @@ export default {
                 .slider-handle {
                   width: 26px;
                   height: 26px;
-                  right: -22px;
+                  right: -16px;
                   top: -24px;
                   .slider-touch-area {
                     &:after {
@@ -222,7 +224,7 @@ export default {
         }
       }
       &__right {
-        padding: 53px 0 0 28px;
+        padding: 53px 0 0 16px;
         &__calc {
           span {
             font-size: $small-font-size;
@@ -252,12 +254,68 @@ export default {
 .slider-connect {
   background: linear-gradient(90.62deg, #126F70 0%, #106E3E 48.44%, #8EBF0D 100%);
 }
-@media (max-width: 767px) {
+@media (max-width: 769px) {
   .first {
+    padding: 22px 12px 38px 20px;
+    border-radius: 20px;
+    .first__content__column__left {
+      margin-bottom: 37px;
+    }
     .first__content__column__right {
       padding: 25px 0 0 0px;
+      margin-bottom: 29px;
       &__calc__pay {
         margin-bottom: 20px;
+      }
+    }
+    .col-lg-5 {
+      order: -1;
+    }
+    .first__content-btn {
+      position: relative;
+      order: 3;
+    }
+  }
+}
+@media (max-width: 568px) {
+  .first {
+    .first__content-title {
+      margin-bottom: 4px;
+      h2 {
+        margin-bottom: 4px;
+      }
+    }
+    .first__content__column__left-inputs {
+      margin-bottom: 33px;
+    }
+    .first__content__column__left-inputs-title {
+      span {
+        font-size: $tiny-font-size;
+        line-height: $tiny-line-height;
+      }
+    }
+    .first__content__column__left-inputs-subtitle {
+      padding-right: 4px;
+      span {
+        font-size: 14px;
+        line-height: 17px;
+      }
+    }
+    .first__content__column__right__calc {
+      span {
+        font-size: $tiny-font-size;
+        line-height: $tiny-line-height;
+      }
+    }
+    .first__content-btn {
+      margin-bottom: 0;
+      button {
+        max-width: 156px;
+        column-gap: 0;
+        padding: 5px 5px 5px 19px;
+        img {
+          padding: 8px;
+        }
       }
     }
   }

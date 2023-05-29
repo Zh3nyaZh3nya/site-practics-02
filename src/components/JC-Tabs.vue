@@ -1,35 +1,27 @@
 <template>
   <section class="tabs">
     <div class="container">
-      <ul class="nav nav-tabs row" id="myTab" role="tablist">
-        <div class="col-lg-3 col-xl-3">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" :class="{ active: activeTab === 'about-loan' }" @click="activeTab = 'about-loan'" type="button" role="tab" aria-controls="about-loan" aria-selected="true">
-              О кредите
-            </button>
-          </li>
-        </div>
-        <div class="col-lg-3 col-xl-3">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" :class="{ active: activeTab === 'conditions' }" @click="activeTab = 'conditions'" type="button" role="tab" aria-controls="conditions" aria-selected="false">
-              Условия
-            </button>
-          </li>
-        </div>
-        <div class="col-lg-3 col-xl-3">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" :class="{ active: activeTab === 'about-us' }" @click="activeTab = 'about-us'" type="button" role="tab" aria-controls="about-us" aria-selected="false">
-              О нас
-            </button>
-          </li>
-        </div>
-        <div class="col-lg-3 col-xl-3">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" :class="{ active: activeTab === 'questions' }" @click="activeTab = 'questions'" type="button" role="tab" aria-controls="questions" aria-selected="false">
-              Вопросы и ответы
-            </button>
-          </li>
-        </div>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item text-nowrap" role="presentation">
+          <button class="nav-link" :class="{ active: activeTab === 'about-loan' }" @click="activeTab = 'about-loan'" type="button" role="tab" aria-controls="about-loan" aria-selected="true">
+            О кредите
+          </button>
+        </li>
+        <li class="nav-item text-nowrap" role="presentation">
+          <button class="nav-link" :class="{ active: activeTab === 'conditions' }" @click="activeTab = 'conditions'" type="button" role="tab" aria-controls="conditions" aria-selected="false">
+            Условия
+          </button>
+        </li>
+        <li class="nav-item text-nowrap" role="presentation">
+          <button class="nav-link" :class="{ active: activeTab === 'about-us' }" @click="activeTab = 'about-us'" type="button" role="tab" aria-controls="about-us" aria-selected="false">
+            О нас
+          </button>
+        </li>
+        <li class="nav-item text-nowrap" role="presentation">
+          <button class="nav-link" :class="{ active: activeTab === 'questions' }" @click="activeTab = 'questions'" type="button" role="tab" aria-controls="questions" aria-selected="false">
+            Вопросы и ответы
+          </button>
+        </li>
       </ul>
     </div>
     <div class="tab-content">
@@ -74,7 +66,7 @@ export default {
     justify-content: space-between;
   }
   .nav-tabs {
-
+    border-bottom: 1px solid #404040;
   }
   .nav-item {
     display: flex;
@@ -88,10 +80,34 @@ export default {
     margin-bottom: 0px;
     border: none;
     padding: 7px 9px 16px 2px;
+    width: 285px;
   }
   .nav-link.active {
     border-bottom: 3px solid $green-color;
-    width: 100%;
+  }
+}
+@media (max-width: 1024px) {
+  .tabs, .nav, .nav-tabs {
+    flex-wrap: nowrap;
+  }
+  .tabs {
+    .nav-tabs {
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none; /* Скрывает полосу прокрутки в Firefox */
+      -ms-overflow-style: none; /* Скрывает полосу прокрутки в IE и Edge */
+    }
+
+    .nav-tabs::-webkit-scrollbar {
+      display: none; /* Скрывает полосу прокрутки в Chrome, Safari и Opera */
+    }
+    .nav-link {
+      color: #000;
+      margin-bottom: 0px;
+      border: none;
+      padding: 15px 23px 7px 20px;
+      width: 100%;
+    }
   }
 }
 </style>

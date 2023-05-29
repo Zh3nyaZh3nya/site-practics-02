@@ -39,9 +39,6 @@ export default {
 <style lang="scss">
 @import "@/assets/scss/variables.scss";
 .end {
-  max-width: 1140px;
-  width: 100%;
-  margin: 0 auto;
   padding: 195px 47px 50px 90px;
   box-shadow: 4px 4px 16px rgba(0, 0, 0, .2);
   border-radius: 70px;
@@ -65,6 +62,38 @@ export default {
       span {
         font-size: $medium-font-size;
         line-height: $medium-font-size;
+      }
+    }
+  }
+}
+@media (max-width: 768px) {
+  .end {
+    padding: 191px 16px 50px 21px;
+    border-radius: 20px;
+    .end__content {
+      &-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        column-gap: 0px;
+        text-align: center;
+        margin-bottom: 42px;
+        h2 {
+          font-size: 32px;
+          line-height: 39px;
+          order: 1;
+        }
+        img {
+          order: -1;
+          margin-bottom: 27px;
+        }
+      }
+      &-subtitle {
+        margin-bottom: 134px;
+        display: flex;
+        justify-content: center;
+        text-align: center;
       }
     }
   }

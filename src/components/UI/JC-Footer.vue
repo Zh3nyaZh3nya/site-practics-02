@@ -18,7 +18,7 @@
             <h3>Информация об услугах, предоставляемых Jet Car:</h3>
           </div>
           <div class="footer__content__services__column row">
-            <div class="footer__content__services__column__left col-6">
+            <div class="footer__content__services__column__left col-lg-6">
               <div
                   class="footer__content__services__column__left-item services-item"
                   v-for="item in footerServicesLeft"
@@ -29,7 +29,7 @@
                 </div>
               </div>
             </div>
-            <div class="footer__content__services__column__right col-6">
+            <div class="footer__content__services__column__right col-lg-6">
               <div
                   class="footer__content__services__column__right-item services-item"
                   v-for="item in footerServicesRight"
@@ -187,6 +187,34 @@ export default {
     line-height: 17px;
     font-weight: 400;
     color: #fff;
+  }
+}
+@media(max-width: 768px) {
+  .footer {
+    .footer__content {
+      &__nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 54px;
+        row-gap: 10px;
+      }
+      &__services {
+        &-title {
+          display: flex;
+          justify-content: center;
+          text-align: center;
+          margin-bottom: 25px;
+          h3 {
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 17px;
+            color: #fff;
+          }
+        }
+      }
+    }
   }
 }
 </style>

@@ -26,4 +26,28 @@
     }
   }
 }
+@media (max-width: 568px) {
+  .component-title {
+    font-size: 36px;
+    line-height: 44px;
+    h2 {
+      font-weight: 500;
+      display: inline;
+    }
+    span {
+      position: relative;
+      &:after {
+        position: absolute;
+        right: -39px;
+        z-index: -1;
+        bottom: 4px;
+        content: "";
+        background: url("@/assets/image/svgIcon/line-bottom-title.svg");
+        display: block;
+        width: 119px;
+        height: 14px;
+      }
+    }
+  }
+}
 </style>

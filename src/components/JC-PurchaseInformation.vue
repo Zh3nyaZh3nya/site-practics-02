@@ -18,8 +18,11 @@
             <div class="bg" v-if="item.backgroundItem">
               <img :src="require('@/assets/image/imagePurchase/' + item.backgroundItem )" alt="" />
             </div>
+            <div class="bg-adaptive" v-if="item.backgroundItemAdaptive">
+              <img :src="require('@/assets/image/imagePurchase/adaptive/' + item.backgroundItemAdaptive)" alt="">
+            </div>
             <img v-if="item.svgItem" :src="require('@/assets/image/svgIcon/' + item.svgItem)" alt="" />
-            <span v-html="item.textItem"></span>
+            <span v-html="item.textItem" v-if="item.textItem"></span>
           </div>
         </div>
       </div>
@@ -36,33 +39,35 @@ export default {
         {
           id: 1,
           backgroundItem: "Rectangle 39.png",
-          col: "col-lg-3 col-7",
+          backgroundItemAdaptive: "Rectangle 39.png",
+          col: "col-lg-3 col-6 order-lg-1 order-1",
         },
         {
           id: 2,
           svgItem: "man.svg",
           textItem: "Рассматриваем возможность предоставления кредита по одному документу и без справки о доходах! Работаем на прозрачных условиях <br />  и доверяем клиентам.",
-          col: "col-lg-5 col-5",
-          padding: "padding-2"
+          col: "col-lg-5 order-lg-2 order-3",
+          padding: "padding-2",
         },
         {
           id: 3,
           svgItem: "headphones.svg",
           textItem: "Отвечаем на заявку всего за 30 минут! Действуем оперативно, потому <br /> что ценим ваше время",
-          col: "col-lg-4",
+          col: "col-lg-4 col-6 order-lg-3 order-1",
           padding: "padding-3"
         },
         {
           id: 4,
           svgItem: "car.svg",
           textItem: "Предлагаем кредит в размере от 300 <br /> 000 до 15 000 000 тенге! Сможете купить подержанное или новое авто в кредит любой модели и года выпуска.",
-          col: "col-lg-6",
+          col: "col-lg-6 order-lg-4 order-2",
           padding: "padding-4",
         },
         {
           id: 5,
           backgroundItem: "Rectangle 41.png",
-          col: "col-lg-6",
+          backgroundItemAdaptive: "Rectangle 41.png",
+          col: "col-lg-6 order-lg-5 order-4",
         }
       ]
     }
@@ -98,6 +103,9 @@ export default {
             margin: 0;
           }
         }
+        .bg-adaptive {
+          display: none;
+        }
         span {
           font-weight: 400;
           font-size: $small-font-size;
@@ -125,5 +133,56 @@ export default {
     }
   }
 }
-
+@media (max-width: 768px) {
+  .purchase{
+    .purchase__content {
+      margin-top: 50px;
+      margin-bottom: 79px;
+    }
+    .purchase__content-title {
+      margin-bottom: 32px;
+    }
+    .purchase__content__column {
+      --bs-gutter-y: 26px;
+      --bs-gutter-x: 6px;
+      &-item {
+        border-radius: 20px;
+        span {
+          font-size: $tiny-font-size;
+          line-height: $tiny-line-height;
+        }
+        .bg {
+          display: none;
+        }
+        .bg-adaptive {
+          display: block;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+      img {
+        width: 30px;
+        height: 30px;
+      }
+      .padding-2 {
+        padding: 17px 11px 27px 12px;
+      }
+      .padding-3 {
+        padding: 17px 20px 20px 17px;
+      }
+      .padding-4 {
+        padding: 12px 41px 21px 13px;
+        img {
+          margin-bottom: 9px;
+        }
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+}
 </style>

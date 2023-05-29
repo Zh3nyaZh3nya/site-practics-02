@@ -81,4 +81,39 @@ export default {
     }
   }
 }
+@media (max-width: 768px) {
+  .registration {
+    padding: 76px 2px 80px 0px;
+    margin-bottom: 115px;
+    background: url("@/assets/image/imageReg/adaptive/business-men-work-with-tablet-computers-their-cars.png") no-repeat;
+    background-size: cover;
+    .registration__inner {
+      padding: 31px 28px 56px 24px;
+      border-radius: 20px;
+      width: 100%;
+      .registration__content {
+        &-title {
+          margin-bottom: 20px;
+          h2 {
+            font-size: 36px;
+            line-height: 44px;
+          }
+        }
+        &-subtitle {
+          br {
+            display: none;
+          }
+        }
+        &-btn {
+          display: flex;
+          justify-content: center;
+          button {
+            column-gap: 26px;
+            padding-left: 38px;
+          }
+        }
+      }
+    }
+  }
+}
 </style>

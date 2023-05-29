@@ -78,12 +78,8 @@ export default {
   --bs-gutter-x: 0;
   --bs-gutter-y: 0;
   .services__content {
-    background: url("@/assets/image/imgServices/man-drove-open-window-smilesd-happily.png")
-    no-repeat;
-    border-radius: 70px;
     margin-bottom: 72px;
     &__main {
-      padding: 141px 0 0 93px;
       &-title {
         margin-bottom: 32px;
         h1 {
@@ -109,8 +105,8 @@ export default {
     &__footer {
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.9) 54.69%, #FFFFFF 100%);
       box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.25);
-      border-radius: 70px;
       padding: 37px 0 48px 0;
+      border-radius: 70px;
       &__list {
         row-gap: 30px;
         &-item {
@@ -125,6 +121,71 @@ export default {
             font-size: $small-font-size;
             line-height: $small-line-height;
             font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+@media(min-width: 568px) {
+  .services__content {
+    background: url("@/assets/image/imgServices/man-drove-open-window-smilesd-happily.png")
+    no-repeat;
+    background-size: cover;
+    border-radius: 70px;
+  }
+  .services__content__main {
+    padding: 141px 0 0 93px;
+  }
+  .services__content__main {
+    border-radius: 70px;
+  }
+}
+@media(max-width: 567px) {
+  .services {
+    .services__content {
+      background: url("@/assets/image/imgServices/adaptive/man-drove-open-window-smilesd-happily.png")
+      no-repeat;
+      max-width: 567px;
+      border-radius: 20px;
+      margin-top: 54px;
+      margin-bottom: 32px;
+    }
+    .services__content__main {
+      padding: 53px 21px 0 20px;
+      .services__content__main-title {
+        max-width: 260px;
+        margin-bottom: 114px;
+        h1 {
+          font-size: 36px;
+          line-height: 44px;
+
+        }
+      }
+      .services__content__main-subtitle {
+        margin-bottom: 36px;
+        h3 {
+          font-size: 20px;
+          line-height: 24px;
+        }
+        br {
+          display: none;
+        }
+      }
+      .services__content__main-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 28px;
+      }
+    }
+    .services__content__footer {
+      border-radius: 20px;
+      &__list {
+        text-align: center;
+        &-item {
+          span {
+            line-height: 26px;
           }
         }
       }

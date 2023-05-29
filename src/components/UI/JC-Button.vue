@@ -39,7 +39,14 @@ export default {
     }
   }
 }
-
+.animated-button.left {
+  button {
+    padding: 5px 23px 5px 7px;
+  }
+  img {
+    order: -1;
+  }
+}
 //.animated-button {
 //  position: relative;
 //  overflow: hidden;
