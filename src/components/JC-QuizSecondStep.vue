@@ -128,17 +128,17 @@ export default {
           nameInput: this.nameInput,
           iinInput: this.iinInput
         };
-        this.$emit("entered-values", this.enteredValues)
+        this.$emit("selected-values", this.enteredValues)
         this.$emit("update-progress", newProgress);
-        this.$emit("next-step", nextStep)
+        this.$emit("update-step", nextStep)
       }
     },
     decreaseProgress() {
       const newProgress = Math.ceil(this.progress - 100 / this.numberStep);
       const prevStep = "first";
       this.enteredValues = {};
-      this.$emit("decrease-progress", newProgress);
-      this.$emit("prev-step", prevStep)
+      this.$emit("update-progress", newProgress);
+      this.$emit("update-step", prevStep)
     }
   },
 }

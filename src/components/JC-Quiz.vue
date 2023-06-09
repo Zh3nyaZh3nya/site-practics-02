@@ -7,8 +7,8 @@
             :progress="progress"
             :current-step="currentStep"
             @update-progress="updateProgress"
-            @next-step="nextStep"
-            @selected-amount="selectedAmount"
+            @update-step="updateStep"
+            @selected-values="selectedValues"
             v-if="currentStep === 'first'"
         />
         <jc-quiz-second-step
@@ -16,10 +16,8 @@
             :progress="progress"
             :current-step="currentStep"
             @update-progress="updateProgress"
-            @decrease-progress="decreaseProgress"
-            @prev-step="prevStep"
-            @next-step="nextStep"
-            @entered-values="enteredValues"
+            @update-step="updateStep"
+            @selected-values="selectedValues"
             v-else-if="currentStep === 'second'"
         />
         <jc-quiz-third-step
@@ -27,10 +25,8 @@
             :progress="progress"
             :current-step="currentStep"
             @update-progress="updateProgress"
-            @decrease-progress="decreaseProgress"
-            @prev-step="prevStep"
-            @next-step="nextStep"
-            @input-data-and-select="inputDataAndSelect"
+            @update-step="updateStep"
+            @selected-values="selectedValues"
             v-else-if="currentStep === 'third'"
         />
         <jc-quiz-end-step
@@ -67,24 +63,12 @@ export default {
     updateProgress(newProgress) {
       this.progress = newProgress;
     },
-    decreaseProgress(newProgress) {
-      this.progress = newProgress;
-    },
-    prevStep(data) {
+    updateStep(data) {
       this.currentStep = data;
     },
-    nextStep(data) {
-      this.currentStep = data;
-    },
-    selectedAmount(data) {
+    selectedValues(data) {
       this.allInfo.push(data);
     },
-    enteredValues(data) {
-      this.allInfo.push(data);
-    },
-    inputDataAndSelect(data) {
-      this.allInfo.push(data);
-    }
   }
 }
 </script>

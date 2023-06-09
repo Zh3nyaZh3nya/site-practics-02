@@ -5,8 +5,7 @@
         <div class="services__content__main">
           <div class="services__content__main-title">
             <h1>
-              Автокредит на любой вкус <br />
-              и кошелёк
+              Автокредит на любой вкус и кошелёк
             </h1>
           </div>
           <div class="services__content__main-subtitle">
@@ -35,6 +34,7 @@
             >
               <div class="services__content__footer__list-item">
                 <img :src="require('@/assets/image/imgServices/' + item.img)" alt="">
+<!--                <img :src="item.img" alt="">-->
                 <span v-html="item.text"></span>
               </div>
             </div>
@@ -135,7 +135,7 @@ export default {
     border-radius: 70px;
   }
   .services__content__main {
-    padding: 141px 0 0 93px;
+    padding: 141px 154px 0 93px;
   }
   .services__content__main {
     border-radius: 70px;

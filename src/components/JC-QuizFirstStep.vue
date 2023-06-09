@@ -139,8 +139,8 @@ export default {
       const nextStep = "second";
       if(this.getInfoPay > 0 && this.getInfoInsurance > 0) {
         this.selectedAmount = this.inputRange.map(item => item.value);
-        this.$emit("selected-amount", this.selectedAmount);
-        this.$emit("next-step", nextStep);
+        this.$emit("selected-values", this.selectedAmount);
+        this.$emit("update-step", nextStep);
         this.$emit("update-progress", newProgress);
       }
     },

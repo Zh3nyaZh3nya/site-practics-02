@@ -329,7 +329,7 @@ export default {
           selectYear: this.selectOptionYear,
         }
       };
-      this.$emit("input-data-and-select", inputDataAndSelect);
+      this.$emit("selected-values", inputDataAndSelect);
     },
     increaseProgress() {
       if (this.progress < 100) {
@@ -340,7 +340,7 @@ export default {
           this.error = false;
           this.combineValuesAndEmit();
           this.$emit("update-progress", newProgress);
-          this.$emit("next-step", nextStep)
+          this.$emit("update-step", nextStep)
         }
       }
     },
@@ -348,8 +348,8 @@ export default {
       if (this.progress > 0 && this.progress <= 100) {
         const newProgress = Math.ceil(this.progress - 100 / this.numberStep);
         const prevStep = "second";
-        this.$emit("decrease-progress", newProgress);
-        this.$emit("prev-step", prevStep)
+        this.$emit("update-progress", newProgress);
+        this.$emit("update-step", prevStep)
       }
     }
   }
